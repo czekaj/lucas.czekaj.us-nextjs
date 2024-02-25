@@ -25,12 +25,13 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   console.log(postData);
   const postContent = postData.content;
   return (
-    <div>
-      <p>one two three</p>
-      <h1>Post: {slug}</h1>
-      <h2>Content:</h2>
-      <div className="wrapper">
-        <MDXRemote source={postContent} />
+    <div className="flex flex-col items-center">
+      <div className="max-w-5xl m-10 p-10 bg-gray-900">
+        <h1 className="text-5xl my-5">{postData.metadata.title}</h1>
+        <hr className="mx-4 my-16" />
+        <article className="prose">
+          <MDXRemote source={postContent} />
+        </article>
       </div>
     </div>
   );
