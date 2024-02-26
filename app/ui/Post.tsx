@@ -22,8 +22,8 @@ const options = {
 
 const Post: NextPage<PostProps> = ({ title, content, date, lastUpdated }) => {
   return (
-    <div className="flex flex-col items-center">
-      <div className="max-w-5xl m-10 p-10 bg-gray-900 bg-opacity-90 rounded-lg w-3/4">
+    <div className="">
+      <div className="p-10 bg-gray-900 bg-opacity-90 rounded-lg">
         <h1 className="text-5xl my-5 text-center">{title}</h1>
         <h2 className="text-center">{date}</h2>
         <hr className="mx-4 my-8" />

@@ -9,6 +9,7 @@ const nextConfig = {
   ...mdx,
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
   output: "export",
+  images: { unoptimized: true },
 };
 
 export default nextConfig;

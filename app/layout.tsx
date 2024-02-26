@@ -18,8 +18,14 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="cupcake">
       <body className={inter.className}>
-        <TopNav />
-        <main>{children}</main>
+        <div id="root-container" className="flex flex-col">
+          <main className="flex flex-col max-w-6xl w-4/5 m-auto">
+            <section id="nav" className="">
+              <TopNav />
+            </section>
+            <section id="content">{children}</section>
+          </main>
+        </div>
       </body>
     </html>
   );
