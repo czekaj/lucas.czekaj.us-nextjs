@@ -26,15 +26,15 @@ const Post: NextPage<PostProps> = ({ title, content, date, lastUpdated }) => {
       <div className="max-w-5xl m-10 p-10 bg-gray-900">
         <h1 className="text-5xl my-5 text-center">{title}</h1>
         <h2 className="text-center">{date}</h2>
+        <hr className="mx-4 my-8" />
+        <article className="prose m-8">
+          <MDXRemote source={content} options={options as any} />
+        </article>
         {lastUpdated && (
           <h3 className="text-xs font-extralight text-gray-500 italic text-center">
             Last updated on {lastUpdated}
           </h3>
         )}
-        <hr className="mx-4 my-8" />
-        <article className="prose">
-          <MDXRemote source={content} options={options as any} />
-        </article>
       </div>
     </div>
   );
