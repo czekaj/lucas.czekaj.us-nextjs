@@ -16,14 +16,12 @@
   }
 }
 
-html {
-  @apply h-full;
-}
 body {
   @apply h-full;
   color: rgb(var(--foreground-rgb));
-  background: url("/bg-vegas.jpg") no-repeat center bottom fixed;
+  background: url("/bg-vegas.jpg") no-repeat center bottom;
   background-size: cover;
+  background-attachment: fixed;
   background-color: rgba(40, 40, 40, 0.2);
 }
 
