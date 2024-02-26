@@ -7,6 +7,7 @@ import "@/styles/highlight-js/styles/github-dark.css";
 interface PostProps {
   title: string;
   date?: string;
+  lastUpdated?: string;
   draft: boolean;
   summary?: string;
   content: string;
@@ -19,12 +20,18 @@ const options = {
   },
 };
 
-const Post: NextPage<PostProps> = ({ title, content }) => {
+const Post: NextPage<PostProps> = ({ title, content, date, lastUpdated }) => {
   return (
     <div className="flex flex-col items-center">
       <div className="max-w-5xl m-10 p-10 bg-gray-900">
-        <h1 className="text-5xl my-5">{title}</h1>
-        <hr className="mx-4 my-16" />
+        <h1 className="text-5xl my-5 text-center">{title}</h1>
+        <h2 className="text-center">{date}</h2>
+        {lastUpdated && (
+          <h3 className="text-xs font-extralight text-gray-500 italic text-center">
+            Last updated on {lastUpdated}
+          </h3>
+        )}
+        <hr className="mx-4 my-8" />
         <article className="prose">
           <MDXRemote source={content} options={options as any} />
         </article>

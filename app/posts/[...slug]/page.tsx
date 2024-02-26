@@ -10,13 +10,14 @@ export const generateStaticParams = async () => {
   return allSlugs.map((slug: string) => ({ slug: [slug] }));
 };
 
-const getPostData = (slug: String) => {
+const getPostData = (slug: string) => {
   const fullPath = path.join(process.cwd(), "data/posts", slug + ".mdx");
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
   let metadata = data;
   metadata["slug"] = slug;
+  metadata["lastUpdated"] = fs.statSync(fullPath).mtime;
 
   return { metadata: metadata, content: content };
 };
@@ -29,10 +30,34 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   const title = metadata.title;
   const content = postData.content;
   const draft = metadata.draft;
+  const formattedDate = new Date(metadata.date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  let formattedLastUpdated = null;
+  if (metadata.lastUpdated) {
+    formattedLastUpdated = new Date(metadata.lastUpdated).toLocaleString(
+      "en-US",
+      {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+      }
+    );
+  }
 
   return (
     <>
-      <Post title={title} content={content} draft={draft}></Post>
+      <Post
+        title={title}
+        content={content}
+        draft={draft}
+        date={formattedDate}
+        lastUpdated={formattedLastUpdated || undefined}
+      ></Post>
     </>
   );
 }
