@@ -1,6 +1,4 @@
-import { MDXRemote } from "next-mdx-remote/rsc";
-import rehypeHighlight from "rehype-highlight";
-import "@/styles/highlight-js/styles/github-dark.css";
+import Post from "@/components/Post";
 
 const fs = require("fs");
 const path = require("path");
@@ -24,22 +22,15 @@ const getPostData = (slug: String) => {
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const slug = decodeURI(params.slug.join("/"));
   const postData = getPostData(slug);
-  const postContent = postData.content;
-  const options = {
-    mdxOptions: {
-      remarkPlugins: [],
-      rehypePlugins: [rehypeHighlight],
-    },
-  };
+  const metadata = postData.metadata;
+
+  const title = metadata.title;
+  const content = postData.content;
+  const draft = metadata.draft;
+
   return (
-    <div className="flex flex-col items-center">
-      <div className="max-w-5xl m-10 p-10 bg-gray-900">
-        <h1 className="text-5xl my-5">{postData.metadata.title}</h1>
-        <hr className="mx-4 my-16" />
-        <article className="prose">
-          <MDXRemote source={postContent} options={options as any} />
-        </article>
-      </div>
-    </div>
+    <>
+      <Post title={title} content={content} draft={draft}></Post>
+    </>
   );
 }
