@@ -9,5 +9,19 @@ summary: Just the first entry in my personal Markdown blog
 There always has to be some kind of start.
 
 ```ruby
-puts "Hello, world!"
+# Use double arrays to create a grid for a word search puzzle
+ 
+box = []
+ 
+10.times do | row |
+  box[row] = []
+  10.times do
+    box[row] << "*"
+  end
+end
+ 
+box.each do | row |
+  # add spaces between our output
+  puts row.join( ' ' )
+end
 ```
