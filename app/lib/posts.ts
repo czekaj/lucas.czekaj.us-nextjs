@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-export function postsSlugs(): string[] {
+export function getPostsSlugs(): string[] {
     const directory = path.join(process.cwd(), '/data');
     const files = fs.readdirSync(directory);
     const mdxFileNames = files

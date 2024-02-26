@@ -1,30 +1,15 @@
 import Post from "@/app/ui/Post";
-import { postsSlugs } from "@/app/lib/getPostsMetadata";
-
-const fs = require("fs");
-const path = require("path");
-const matter = require("gray-matter");
+import { getPostsSlugs } from "@/app/lib/posts";
+import { getPostData } from "@/app/lib/post";
 
 export const generateStaticParams = async () => {
-  const allSlugs = await postsSlugs();
+  const allSlugs = await getPostsSlugs();
   return allSlugs.map((slug: string) => ({ slug: [slug] }));
-};
-
-const getPostData = (slug: string) => {
-  const fullPath = path.join(process.cwd(), "data", slug + ".mdx");
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-  const { data, content } = matter(fileContents);
-
-  let metadata = data;
-  metadata["slug"] = slug;
-  metadata["lastUpdated"] = fs.statSync(fullPath).mtime;
-
-  return { metadata: metadata, content: content };
 };
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const slug = decodeURI(params.slug.join("/"));
-  const postData = getPostData(slug);
+  const postData = await getPostData(slug);
   const metadata = postData.metadata;
 
   const title = metadata.title;
