@@ -11,7 +11,7 @@ export const generateStaticParams = async () => {
 };
 
 const getPostData = (slug: string) => {
-  const fullPath = path.join(process.cwd(), "data/posts", slug + ".mdx");
+  const fullPath = path.join(process.cwd(), "data", slug + ".mdx");
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
