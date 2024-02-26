@@ -1,11 +1,13 @@
 import Post from "@/components/Post";
+import { postsSlugs } from "@/lib/getPostsMetadata";
 
 const fs = require("fs");
 const path = require("path");
 const matter = require("gray-matter");
 
 export const generateStaticParams = async () => {
-  return [{ slug: ["hello-blog"] }];
+  const allSlugs = await postsSlugs();
+  return allSlugs.map((slug: string) => ({ slug: [slug] }));
 };
 
 const getPostData = (slug: String) => {
