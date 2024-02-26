@@ -23,11 +23,11 @@ const options = {
 const Post: NextPage<PostProps> = ({ title, content, date, lastUpdated }) => {
   return (
     <div className="flex flex-col items-center">
-      <div className="max-w-5xl m-10 p-10 bg-gray-900">
+      <div className="max-w-5xl m-10 p-10 bg-gray-900 bg-opacity-90">
         <h1 className="text-5xl my-5 text-center">{title}</h1>
         <h2 className="text-center">{date}</h2>
         <hr className="mx-4 my-8" />
-        <article className="prose m-8">
+        <article className="prose m-8 text-gray-200">
           <MDXRemote source={content} options={options as any} />
         </article>
         {lastUpdated && (

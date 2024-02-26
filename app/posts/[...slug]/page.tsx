@@ -34,6 +34,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     year: "numeric",
     month: "long",
     day: "numeric",
+    timeZone: "UTC",
   });
   let formattedLastUpdated = null;
   if (metadata.lastUpdated) {
