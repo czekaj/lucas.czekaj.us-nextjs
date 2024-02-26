@@ -16,6 +16,9 @@
   }
 }
 
+html {
+  @apply h-full;
+}
 body {
   @apply h-full;
   color: rgb(var(--foreground-rgb));

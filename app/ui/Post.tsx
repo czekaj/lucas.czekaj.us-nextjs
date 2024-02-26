@@ -2,7 +2,7 @@ import React from "react";
 import { NextPage } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeHighlight from "rehype-highlight";
-import "@/styles/highlight-js/styles/github-dark.css";
+import "@/app/ui/highlight-js/styles/github-dark.css";
 
 interface PostProps {
   title: string;

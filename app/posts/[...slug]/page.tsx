@@ -1,5 +1,5 @@
-import Post from "@/components/Post";
-import { postsSlugs } from "@/lib/getPostsMetadata";
+import Post from "@/app/ui/Post";
+import { postsSlugs } from "@/app/lib/getPostsMetadata";
 
 const fs = require("fs");
 const path = require("path");
