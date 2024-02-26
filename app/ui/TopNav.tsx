@@ -17,7 +17,7 @@ const TopNav: React.FC<TopNavProps> = (props) => {
       className={`flex justify-between items-center my-10 mx-2 h-20 ${actor.className}`}
     >
       <Link className="flex" key="home" href="/">
-        <div className="mr-3">
+        <div className="mr-5">
           <Image
             src={"/lucas_czekaj.jpg"}
             alt="lucas czekaj"

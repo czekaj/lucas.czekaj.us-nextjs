@@ -18,7 +18,15 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="cupcake">
       <body className={inter.className}>
-        <div id="root-container" className="flex flex-col">
+        <div
+          id="background"
+          className="fixed h-full w-full bg-gray-900"
+          style={{
+            background: "url('/bg-vegas.jpg') no-repeat center center fixed",
+            backgroundSize: "cover",
+          }}
+        ></div>
+        <div id="root-container" className="relative text-gray-200">
           <main className="flex flex-col max-w-6xl w-4/5 m-auto">
             <section id="nav" className="">
               <TopNav />
