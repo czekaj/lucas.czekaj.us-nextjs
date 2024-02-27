@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import TopNav from "./ui/TopNav";
 
-const inter = Inter({ subsets: ["latin"] });
+const dmSans = DM_Sans({ subsets: ["latin"], weight: "300", display: "swap" });
 
 export const metadata: Metadata = {
   title: "Lucas Czekaj - blog",
@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="cupcake">
-      <body className={inter.className}>
+      <body className={dmSans.className}>
         <div
           id="background"
           className="fixed h-full w-full bg-gray-900"
