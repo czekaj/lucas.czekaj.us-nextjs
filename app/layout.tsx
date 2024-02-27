@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className={dmSans.className}>
         <div
           id="background"
-          className="fixed h-full w-full bg-gray-900"
+          className="fixed h-full w-full"
           style={{
             background: "url('/bg-vegas.jpg') no-repeat center center fixed",
             backgroundSize: "cover",
@@ -28,10 +28,15 @@ export default function RootLayout({
         ></div>
         <div id="root-container" className="relative text-gray-200">
           <main className="flex flex-col max-w-6xl w-4/5 m-auto">
-            <section id="nav" className="">
+            <section id="nav" className="my-8">
               <TopNav />
             </section>
-            <section id="content">{children}</section>
+            <section
+              id="content"
+              className="p-10 bg-neutral-950 bg-opacity-90 rounded-lg"
+            >
+              {children}
+            </section>
           </main>
         </div>
       </body>
