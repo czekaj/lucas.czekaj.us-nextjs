@@ -11,7 +11,9 @@ import { dirname } from "path";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const basePath =
-  process.env.GITHUB_PAGES === "true" ? "/" + __dirname.split("/").pop() : "";
+  process.env.GITHUB_PAGES === "nottrue"
+    ? "/" + __dirname.split("/").pop()
+    : "";
 
 const nextConfig = {
   ...mdx,
