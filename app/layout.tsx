@@ -3,7 +3,7 @@ import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import TopNav from "./ui/TopNav";
 
-const dmSans = DM_Sans({ subsets: ["latin"], weight: "300", display: "swap" });
+const dmSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Lucas Czekaj - blog",

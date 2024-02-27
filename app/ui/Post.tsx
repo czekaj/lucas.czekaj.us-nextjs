@@ -6,7 +6,7 @@ import "@/app/ui/highlight-js/styles/github-dark.css";
 
 interface PostProps {
   title: string;
-  date?: string;
+  date: string;
   lastUpdated?: string;
   draft: boolean;
   summary?: string;
