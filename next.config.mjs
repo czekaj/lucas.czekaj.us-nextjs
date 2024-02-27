@@ -5,21 +5,11 @@ const mdx = withMDX({
   extension: /\.mdx?$/,
 });
 
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const basePath =
-  process.env.GITHUB_PAGES === "nottrue"
-    ? "/" + __dirname.split("/").pop()
-    : "";
-
 const nextConfig = {
   ...mdx,
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
   output: "export",
-  basePath,
+  basePath: "",
   images: { unoptimized: true },
 };
 
