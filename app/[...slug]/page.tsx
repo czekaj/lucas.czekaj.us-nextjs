@@ -15,25 +15,8 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   const title = metadata.title;
   const content = postData.content;
   const draft = metadata.draft;
-  const formattedDate = new Date(metadata.date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    timeZone: "UTC",
-  });
-  let formattedLastUpdated = null;
-  if (metadata.lastUpdated) {
-    formattedLastUpdated = new Date(metadata.lastUpdated).toLocaleString(
-      "en-US",
-      {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        hour: "numeric",
-        minute: "numeric",
-      }
-    );
-  }
+  const date = metadata.formattedDate;
+  const lastUpdated = metadata.formattedLastUpdated;
 
   return (
     <>
@@ -41,8 +24,8 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
         title={title}
         content={content}
         draft={draft}
-        date={formattedDate}
-        lastUpdated={formattedLastUpdated || undefined}
+        date={date}
+        lastUpdated={lastUpdated}
       ></Post>
     </>
   );
