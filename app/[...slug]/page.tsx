@@ -7,8 +7,8 @@ export const generateStaticParams = async () => {
   return allSlugs.map((slug: string) => ({ slug: [slug] }));
 };
 
-export default async function Page({ params }: { params: { slug: string[] } }) {
-  const slug = decodeURI(params.slug.join("/"));
+export default async function Page({ params }: { params: Promise<{ slug: string[] }> }) {
+  const slug = decodeURI((await params).slug.join("/"));
   const postData = await getPostData(slug);
   const metadata = postData.metadata;
 
